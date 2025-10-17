@@ -1,0 +1,15 @@
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\bin\Debug\net9.0\lab_2.exe
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\bin\Debug\net9.0\lab_2.deps.json
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\bin\Debug\net9.0\lab_2.runtimeconfig.json
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\bin\Debug\net9.0\lab_2.dll
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\bin\Debug\net9.0\lab_2.pdb
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.AssemblyInfoInputs.cache
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.AssemblyInfo.cs
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.csproj.CoreCompileInputs.cache
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.sourcelink.json
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.dll
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\refint\lab_2.dll
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.pdb
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\lab_2.genruntimeconfig.cache
+C:\Users\Zsigmond Artur\Desktop\Parallel-Dynamic-Programming\lab_2\obj\Debug\net9.0\ref\lab_2.dll
