@@ -245,3 +245,38 @@ int main(int argc, char** argv)
     }
     return 0;
 }
+
+/*
+build command:
+g++ -O2 -std=c++17 -pthread matrix_threads.cpp -o mtmul.exe
+
+
+examples to run:
+
+small debug test:
+./mtmul.exe 9 9 9 4 rows --debug 
+
+decently sized tests:
+./mtmul.exe 512 512 512 4 rows
+./mtmul.exe 1024 1024 1024 8 cols
+./mtmul.exe 1024 1024 1024 8 everyk
+
+time performance:
+
+test 1:
+4t - 44.2125 ms
+1t - 0, too little
+
+test 2:
+4t - 57.669 ms
+1t - 160.35 ms
+
+test 3:
+4t - 403.737 ms
+1t - 1480.83 ms
+
+test 4:
+4t - 433.32 ms
+1t - 1473.41 ms
+
+*/
