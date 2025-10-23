@@ -115,3 +115,133 @@ vector<vector<Task>> split_every_k(int M, int N, int num_threads)
     }
     return res;
 }
+
+enum class Strategy { Rows, Cols, EveryK };
+
+vector<vector<Task>> make_tasks(int M, int N, int T, Strategy s)
+{
+    switch (s) {
+        case Strategy::Rows:   return split_by_rows(M, N, T);
+        case Strategy::Cols:   return split_by_cols(M, N, T);
+        case Strategy::EveryK: return split_every_k(M, N, T);
+    }
+    return {};
+}
+
+// Single-thread baseline for correctness & timing
+vector<double> multiply_baseline(const vector<double>& A,
+                                 const vector<double>& B,
+                                 int M, int K, int N)
+{
+    vector<double> C(M * N, 0.0);
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < N; ++j) {
+            double s = 0.0;
+            for (int kk = 0; kk < K; ++kk) {
+                s += getA(A, i, kk, K) * getB(B, kk, j, N);
+            }
+            getC(C, i, j, N) = s;
+        }
+    }
+    return C;
+}
+
+// Compare two C matrices and report max absolute difference 
+double max_abs_diff(const vector<double>& X, const vector<double>& Y)
+{
+    double m = 0.0;
+    for (size_t i = 0; i < X.size(); ++i) {
+        m = max(m, abs(X[i] - Y[i]));
+    }
+    return m;
+}
+
+int main(int argc, char** argv)
+{
+    // Usage: prog M K N T strategy[rows|cols|everyk] [--debug] [--random]
+    if (argc < 6) {
+        cerr << "Usage: " << argv[0] << " M K N T strategy(rows|cols|everyk) [--debug] [--random]\n";
+        return 1;
+    }
+
+    const int M = stoi(argv[1]);
+    const int K = stoi(argv[2]);
+    const int N = stoi(argv[3]);
+    const int T = max(1, stoi(argv[4]));
+    string sarg = argv[5];
+
+    Strategy strat = Strategy::Rows;
+    if (sarg == "cols")    strat = Strategy::Cols;
+    else if (sarg == "everyk") strat = Strategy::EveryK;
+    else if (sarg != "rows") {
+        cerr << "Unknown strategy: " << sarg << " (use rows|cols|everyk)\n";
+        return 1;
+    }
+
+    bool use_random = false;
+    for (int i = 6; i < argc; ++i) {
+        string flag = argv[i];
+        if (flag == "--debug") g_debug = true;
+        else if (flag == "--random") use_random = true;
+        else {
+            cerr << "Unknown flag: " << flag << "\n";
+            return 1;
+        }
+    }
+
+    // Allocate A, B, C
+    vector<double> A(M * K), B(K * N), C(M * N, 0.0);
+
+    // Initialize inputs:
+    // - Default: simple deterministic iota (1,2,3,...) to keep results stable
+    // - Optional: --random to explore cache/branching less deterministically
+    if (use_random) {
+        mt19937_64 rng(42);
+        uniform_real_distribution<double> dist(-1.0, 1.0);
+        for (auto& v : A) v = dist(rng);
+        for (auto& v : B) v = dist(rng);
+    } else {
+        iota(A.begin(), A.end(), 1.0);
+        iota(B.begin(), B.end(), 1.0);
+    }
+
+    // Prepare tasks for chosen strategy
+    auto tasks_per_thread = make_tasks(M, N, T, strat);
+
+    // Time the threaded multiplication (spawn + compute + join)
+    auto t0 = chrono::high_resolution_clock::now();
+
+    vector<thread> threads;
+    threads.reserve(T);
+    for (int t = 0; t < T; ++t) {
+        threads.emplace_back(worker, t, cref(tasks_per_thread[t]),
+                             cref(A), cref(B), ref(C), M, K, N);
+    }
+    for (auto& th : threads) th.join();
+
+    auto t1 = chrono::high_resolution_clock::now();
+    double threaded_ms = chrono::duration<double, milli>(t1 - t0).count();
+
+    cout << "Threaded (" << sarg << ", T=" << T << "): " << threaded_ms << " ms\n";
+
+    // Baseline single-thread timing + correctness check
+    auto b0 = chrono::high_resolution_clock::now();
+    vector<double> C_ref = multiply_baseline(A, B, M, K, N);
+    auto b1 = chrono::high_resolution_clock::now();
+    double baseline_ms = chrono::duration<double, milli>(b1 - b0).count();
+
+    double diff = max_abs_diff(C, C_ref);
+    cout << "Baseline (1 thread): " << baseline_ms << " ms\n";
+    cout << "Max |C - C_ref|: " << diff << "\n";
+
+    // Tiny sanity print for very small matrices (kept compact)
+    if (g_debug && M <= 9 && N <= 9) {
+        cout << "C (threaded) first few rows:\n";
+        for (int i = 0; i < M; ++i) {
+            for (int j = 0; j < N; ++j) {
+                cout << getC(C, i, j, N) << (j + 1 == N ? '\n' : ' ');
+            }
+        }
+    }
+    return 0;
+}
