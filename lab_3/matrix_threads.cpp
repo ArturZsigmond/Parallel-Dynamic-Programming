@@ -55,3 +55,63 @@ void worker(int thread_id,
     }
 }
 
+// All return a vector sized num_threads; each entry holds that thread's tasks
+// (R) Consecutive by rows (row-major linearization)
+vector<vector<Task>> split_by_rows(int M, int N, int num_threads)
+{
+    vector<vector<Task>> res(num_threads);
+    const int total = M * N;
+    const int base = total / num_threads;
+    const int extra = total % num_threads;
+
+    int start = 0;
+    for (int t = 0; t < num_threads; ++t) {
+        int count = base + (t < extra ? 1 : 0);
+        res[t].reserve(count);
+        for (int idx = start; idx < start + count; ++idx) {
+            int i = idx / N;
+            int j = idx % N;
+            res[t].push_back({i, j});
+        }
+        start += count;
+    }
+    return res;
+}
+
+// (C) Consecutive by columns (column-major linearization)
+vector<vector<Task>> split_by_cols(int M, int N, int num_threads)
+{
+    vector<vector<Task>> res(num_threads);
+    const int total = M * N;
+    const int base = total / num_threads;
+    const int extra = total % num_threads;
+
+    int start = 0;
+    for (int t = 0; t < num_threads; ++t) {
+        int count = base + (t < extra ? 1 : 0);
+        res[t].reserve(count);
+        for (int idx = start; idx < start + count; ++idx) {
+            int j = idx / M; // sweep columns first
+            int i = idx % M;
+            res[t].push_back({i, j});
+        }
+        start += count;
+    }
+    return res;
+}
+
+// (K) Every k-th element in row-major order
+vector<vector<Task>> split_every_k(int M, int N, int num_threads)
+{
+    vector<vector<Task>> res(num_threads);
+    for (auto& v : res) v.reserve((M * N + num_threads - 1) / num_threads);
+
+    const int total = M * N;
+    for (int idx = 0; idx < total; ++idx) {
+        int t = idx % num_threads;
+        int i = idx / N;
+        int j = idx % N;
+        res[t].push_back({i, j});
+    }
+    return res;
+}
