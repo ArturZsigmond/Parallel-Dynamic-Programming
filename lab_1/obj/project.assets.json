@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Zsigmond Artur\\.nuget\\packages\\": {},
-    "E:\\Shared_Tools\\NuGetPackages": {}
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zsigmond Artur\\Desktop\\Parallel-Dynamic-Programming\\lab_1\\lab_1.csproj",
+      "projectUniqueName": "C:\\Users\\arthu\\Desktop\\Parallel-Dynamic-Programming\\lab_1\\lab_1.csproj",
       "projectName": "lab_1",
-      "projectPath": "C:\\Users\\Zsigmond Artur\\Desktop\\Parallel-Dynamic-Programming\\lab_1\\lab_1.csproj",
-      "packagesPath": "C:\\Users\\Zsigmond Artur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zsigmond Artur\\Desktop\\Parallel-Dynamic-Programming\\lab_1\\obj\\",
+      "projectPath": "C:\\Users\\arthu\\Desktop\\Parallel-Dynamic-Programming\\lab_1\\lab_1.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arthu\\Desktop\\Parallel-Dynamic-Programming\\lab_1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Shared_Tools\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Zsigmond Artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -52,7 +52,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -73,7 +73,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
