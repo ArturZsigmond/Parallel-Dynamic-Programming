@@ -1,0 +1,15 @@
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\bin\Debug\net9.0\DownloaderAwait.exe
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\bin\Debug\net9.0\DownloaderAwait.deps.json
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\bin\Debug\net9.0\DownloaderAwait.runtimeconfig.json
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\bin\Debug\net9.0\DownloaderAwait.dll
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\bin\Debug\net9.0\DownloaderAwait.pdb
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.AssemblyInfoInputs.cache
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.AssemblyInfo.cs
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.csproj.CoreCompileInputs.cache
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.sourcelink.json
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.dll
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\refint\DownloaderAwait.dll
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.pdb
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\DownloaderAwait.genruntimeconfig.cache
+C:\Users\arthu\Desktop\Parallel-Dynamic-Programming\lab_4\DownloaderAwait\obj\Debug\net9.0\ref\DownloaderAwait.dll
